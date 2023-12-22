@@ -37,7 +37,7 @@ body {
 .container {
     padding: 20px;
     margin: 10px auto 0;
-    border-radius: 15px;
+    border-radius: 30px;
     max-width: 90%; /* Set max-width for responsiveness */
     position: fixed;
     top: calc(5% + -300px); /* Center the container vertically */
@@ -188,7 +188,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 50px;
+    border-radius: 30px;
 }
 
 .container .card h1 {
@@ -225,4 +225,127 @@ body {
     letter-spacing: -0.32px;
     text-align: center;
     margin: 15px 0; /* Adjusted margin */
+}
+
+.program-container {
+    max-width: 700px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px 25px; /* Adjusted padding to create space on the right */
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 21px;
+    margin-top: 150px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-126%);
+}
+
+.program-container .program-names {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.program-container .program-names h1 {
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin: 2px 0;
+    margin-top: 15px;
+    margin-left: 5px;
+    letter-spacing: 1px;
+}
+
+.program-container .program-names p {
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    margin: 15px 0;
+    margin-top: -5px;
+}
+
+.program-container .program-names form {
+    width: 100%;
+    padding: 10px;
+}
+
+.program-container .program-names label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.program-container .program-names input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid var(--Gray, #A6A6A6);
+    background: var(--White, #FFF);
+    border-radius: 4px;
+    color: #000000;
+    font-family: 'Alata', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    margin-left: -5px;
+}
+
+.program-container .program-date-collected {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.program-container .program-date-collected h1 {
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin: 2px 0;
+    margin-top: 5px;
+    margin-left: 5px;
+    letter-spacing: 1px;
+}
+
+.program-container .program-date-collected form {
+    width: 33%;
+    padding: 10px;
+}
+
+.program-container .program-date-collected label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.program-container .program-date-collected input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid var(--Gray, #A6A6A6);
+    background: var(--White, #FFF);
+    border-radius: 4px;
+    color: #000000;
+    font-family: 'Alata', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    margin-left: -5px;
 }
