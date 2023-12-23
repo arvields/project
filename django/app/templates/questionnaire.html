@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alata&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600&display=swap">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'questionnaire_style.css'%}">
+    <script>
+        window.addEventListener('scroll', function() {
+            var navbar = document.querySelector('.navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'questionnaire' %}">Questionnaire</a></li>
+                <li><a href="#">Results</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <p>CLASSIFICATION SYSTEM FOR INDO-PACIFIC ICHTHYOPLANKTON FISH FAMILY</p>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <div class="program-container">
+                <div class="card">
+                    <div class="logo-container">
+                        <img src="{% static 'img/logo.png' %}" class="logo" alt="Logo">
+                        <h1>REPUBLIC OF THE PHILIPPINES
+                            <br>MINDANAO STATE UNIVERSITY - GENERAL SANTOS
+                            <br>Barangay Fatima, General Santos City
+                        </h1>
+                        <img src="{% static 'img/logo2.png' %}" class="logo" alt="Logo">
+                    </div>
+                    <h1>DOST PCAARD<br>TUNA RESEARCH PROGRAM</h1>
+                    <h2>(Individual Fish Program)</h2>
+                </div>
+                <div class="program-names">
+                    <h1>NAME OF ASSESSOR</h1>
+                    <form>
+                        <input type="text" id="assessor-name" name="assessor-name">
+                    </form>
+                </div>
+                <div class="program-container2">
+                    <div class="program-date-collected">
+                        <h1>DATE (COLLECTED)</h1>
+                        <form>
+                            <input type="text" id="date-collected" name="date-collected" pattern="\d{2}/\d{2}/\d{4}" placeholder="MM/DD/YYYY" required>
+                            <small>Enter date in MM/DD/YYYY format</small>
+                        </form>
+                    </div>
+                    <div class="program-date-measured">
+                        <h1>DATE (MEASURED)</h1>
+                        <form>
+                            <input type="text" id="date-measured" name="date-measured" pattern="\d{2}/\d{2}/\d{4}" placeholder="MM/DD/YYYY" required>
+                            <small>Enter date in MM/DD/YYYY format</small>
+                        </form>
+                    </div>
+                    <div class="program-margin-of-error">
+                        <h1>MARGIN OF ERROR</h1>
+                        <form>
+                            <input type="text" id="margin-of-error" name="margin-of-error" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid numeric value" required>
+                        </form>
+                    </div>
+                </div>
+                <div class="program-container3">
+                    <div class="program-location">
+                        <h1>LOCATION (CODE)</h1>
+                        <form>
+                            <select id="location" name="location">
+                                <option value="" disabled selected hidden>SELECT LOCATION</option>
+                                <option value="location1">GLN</option>
+                                <option value="location2">GSA</option>
+                                <option value="location3">GSM</option>
+                                <option value="location4">K</option>
+                                <option value="location5">MS</option>
+                                <option value="location6">MSK</option>
+                                <option value="location7">MSM</option>
+                                <option value="location8">MTK</option>
+                                <option value="location9">SM</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="program-plankton">
+                        <h1>PLANKTON NET TYPE</h1>
+                        <form>
+                            <select id="plankton" name="plankton">
+                                <option value="" disabled selected hidden>SELECT PLANKTON NET TYPE</option>
+                                <option value="plankton1">Bongo Net</option>
+                                <option value="plankton2">Manta Net</option>
+                                <option value="plankton3">Pairovet Net</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="program-fish-stages">
+                        <h1>FISH STAGE</h1>
+                        <form>
+                            <select id="fish-stages" name="fish-stages">
+                                <option value="" disabled selected hidden>SELECT FISH STAGE</option>
+                                <option value="stage1">Pre-flexion</option>
+                                <option value="stage2">Flexion</option>
+                                <option value="stage3">Post-flexion</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <div class="fish-parts">
+                    <img src="{% static 'img/fish.png' %}">
+                </div>
+                <div class="container-wrapper">
+                    <div class="program-container4">
+                        <div class="meristic-container">
+                            <h2>MERISTIC MEASUREMENT</h2>
+                            <div class="program-meristic">
+                                <h1>BODY LENGTH (BL)</h1>
+                                <form>
+                                    <input type="text" id="bl" name="bl" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                                <h1>PRE-DORSAL FIN LENGTH (PDL)</h1>
+                                <form>
+                                    <input type="text" id="pdl" name="pdl" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                                <h1>HEAD LENGTH (HL)</h1>
+                                <form>
+                                    <input type="text" id="hl" name="hl" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                                <h1>SNOUT LENGTH (SNL)</h1>
+                                <form>
+                                    <input type="text" id="snl" name="snl" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                                <h1>BODY DEPTH (BD)</h1>
+                                <form>
+                                    <input type="text" id="bd" name="bd" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                                <h1>EYE DIAMETER (ED)</h1>
+                                <form>
+                                    <input type="text" id="ed" name="ed" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                                <h1>PRENATAL LENGTH (PAL)</h1>
+                                <form>
+                                    <input type="text" id="pal" name="pal" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                                <h1>VENT TO ANAL-FIN LENGTH (VAFL)</h1>
+                                <form>
+                                    <input type="text" id="vafl" name="vafl" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-container5">
+                        <div class="characters-container">
+                            <h2>MERISTIC CHARACTERS COUNT</h2>
+                            <div class="program-characters">
+                                <h1>DORSAL FIN (D)</h1>
+                                <form>
+                                    <input type="text" id="dorsal_fin" name="dorsal_fin" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                                <h1>ANAL FIN (A)</h1>
+                                <form>
+                                    <input type="text" id="anal_fin" name="anal_fin" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                                <h1>PECTORAL FIN (P1)</h1>
+                                <form>
+                                    <input type="text" id="pectoral_fin" name="pectoral_fin" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                                <h1>PELVIC FIN (P2)</h1>
+                                <form>
+                                    <input type="text" id="pelvic_fin" name="pelvic_fin" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                                <h1>CAUDAL FIN (C)</h1>
+                                <form>
+                                    <input type="text" id="caudal_fin" name="caudal_fin" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                                <h1>VERTEBRAE</h1>
+                                <form>
+                                    <input type="text" id="vertebrae" name="vertebrae" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit-button">
+                    <a href="#">SUBMIT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
