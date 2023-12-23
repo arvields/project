@@ -4,7 +4,7 @@
     font-family: sans-serif;
 }
 
-body {
+html {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -12,6 +12,13 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+body {
+    margin: 0;
+    padding: 0;
     height: 100%;
     overflow: auto;
 }
@@ -106,12 +113,12 @@ body {
 }
 
 .navbar.scrolled {
-    background-color: #8DD9CC;
+    background-color: #3eb489;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar.scrolled ul {
-    background-color: #8DD9CC;
+    background-color: #3eb489;
 }
 
 .navbar.scrolled li {
@@ -184,25 +191,38 @@ body {
     margin-top: 10px;
 }
 
-.container .card {
+.program-container {
+    max-width: 700px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px 25px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 21px;
+    margin-top: 1200px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-126%);
+}
+
+.card {
     max-width: 800px;
-    /* Adjusted max-width */
     width: 100%;
-    margin: 0 auto;
     position: relative;
     height: auto;
-    /* Change height to auto */
-    background-color: rgba(255, 255, 255, 0.7);
     margin: 20px auto;
-    /* Adjusted margin */
     padding: 20px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 30px;
+    /* Centering the card horizontally */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
 }
 
-.container .card h1 {
+.card h1 {
     color: #3C38FB;
     font-family: 'Alata', sans-serif;
     font-size: 14px;
@@ -211,11 +231,10 @@ body {
     line-height: normal;
     text-align: center;
     margin: 15px 0;
-    /* Adjusted margin */
     margin-bottom: 0px;
 }
 
-.container .card h2 {
+.card h2 {
     color: #000;
     font-family: 'Alata', sans-serif;
     font-size: 14px;
@@ -226,8 +245,8 @@ body {
     text-align: center;
 }
 
-.container .card p,
-.container .card p1 {
+.card p,
+.card p1 {
     color: #000;
     font-family: 'Alata', sans-serif;
     font-size: 14px;
@@ -237,7 +256,6 @@ body {
     letter-spacing: -0.32px;
     text-align: center;
     margin: 15px 0;
-    /* Adjusted margin */
 }
 
 .program-container {
@@ -249,7 +267,7 @@ body {
     text-align: left;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 21px;
-    margin-top: 150px;
+    margin-top: 1150px;
     position: relative;
     left: 50%;
     transform: translateX(-126%);
@@ -449,4 +467,181 @@ body {
     margin-top: -10px;
     margin-left: -5px;
     letter-spacing: 1px;
+}
+
+.fish-parts {
+    margin-top: 20px;
+}
+
+.fish-parts img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.container-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.program-container4,
+.program-container5 {
+    max-width: 48%;
+    /* Adjust as needed */
+    width: 100%;
+    padding: 15px 25px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 21px;
+    margin-top: 20px;
+}
+
+.meristic-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.meristic-container h2 {
+    color: #000000;
+    font-family: 'Alata', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    margin: 20px 0;
+    letter-spacing: 1px;
+}
+
+.program-container4 .program-meristic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.program-container4 h1 {
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+.program-container4 form {
+    width: 100%;
+    padding: 10px;
+}
+
+.program-container4 label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.program-container4 input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid var(--Gray, #A6A6A6);
+    background: var(--White, #FFF);
+    border-radius: 4px;
+    color: #000000;
+    font-family: 'Alata', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    margin-left: -5px;
+}
+
+.characters-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.characters-container h2 {
+    color: #000000;
+    font-family: 'Alata', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    margin: 20px 0;
+    letter-spacing: 1px;
+}
+
+.program-container5 .program-characters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.program-container5 h1 {
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+.program-container5 form {
+    width: 100%;
+    padding: 10px;
+}
+
+.program-container5 label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.program-container5 input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid var(--Gray, #A6A6A6);
+    background: var(--White, #FFF);
+    border-radius: 4px;
+    color: #000000;
+    font-family: 'Alata', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    margin-left: -5px;
+}
+
+.submit-button {
+    margin-top: 10px;
+    /* Adjust as needed */
+    text-align: center;
+}
+
+.submit-button a {
+    font-family: 'Alata', sans-serif;
+    font-size: 20px;
+    display: inline-block;
+    padding: 10px 40px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #2749FF;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    /* Make it circular rectangular */
+    transition: background-color 0.3s ease;
+}
+
+.submit-button a:hover {
+    background-color: #DE2323;
 }
