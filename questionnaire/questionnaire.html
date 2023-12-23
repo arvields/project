@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +12,16 @@
     <link rel="stylesheet" href="questionnaire_style.css">
     <script>
         window.addEventListener('scroll', function() {
-          var navbar = document.querySelector('.navbar');
-          if (window.scrollY > 0) {
-            navbar.classList.add('scrolled');
-          } else {
-            navbar.classList.remove('scrolled');
-          }
+            var navbar = document.querySelector('.navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
     </script>
 </head>
+
 <body>
     <div class="banner">
         <div class="navbar">
@@ -44,24 +46,81 @@
                     </div>
                     <h1>DOST PCAARD<br>TUNA RESEARCH PROGRAM</h1>
                     <h2>(Individual Fish Program)</h2>
-                </div> 
+                </div>
             </div>
         </div>
         <div class="program-container">
             <div class="program-names">
                 <h1>NAME OF ASSESSOR</h1>
                 <form>
-                    <input type="text" id="program-details" name="program-details">
+                    <input type="text" id="assessor-name" name="assessor-name">
                 </form>
             </div>
-            <div class="program-date-collected">
-                <h1>DATE (COLLECTED):</h1>
-                <form>
-                    <input type="text" id="program-details" name="program-details" pattern="\d{2}/\d{2}/\d{4}" placeholder="MM/DD/YYYY" required>
-                    <small>Enter date in MM/DD/YYYY format</small>
-                </form>
-            </div>            
+            <div class="program-container2">
+                <div class="program-date-collected">
+                    <h1>DATE (COLLECTED)</h1>
+                    <form>
+                        <input type="text" id="date-collected" name="date-collected" pattern="\d{2}/\d{2}/\d{4}" placeholder="MM/DD/YYYY" required>
+                        <small>Enter date in MM/DD/YYYY format</small>
+                    </form>
+                </div>
+                <div class="program-date-measured">
+                    <h1>DATE (MEASURED)</h1>
+                    <form>
+                        <input type="text" id="date-measured" name="date-measured" pattern="\d{2}/\d{2}/\d{4}" placeholder="MM/DD/YYYY" required>
+                        <small>Enter date in MM/DD/YYYY format</small>
+                    </form>
+                </div>
+                <div class="program-margin-of-error">
+                    <h1>MARGIN OF ERROR</h1>
+                    <form>
+                        <input type="text" id="margin-of-error" name="margin-of-error" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid numeric value" required>
+                    </form>
+                </div>
+            </div>
+            <div class="program-container3">
+                <div class="program-location">
+                    <h1>LOCATION (CODE)</h1>
+                    <form>
+                        <select id="location" name="location">
+                            <option value="" disabled selected hidden>SELECT LOCATION</option>
+                            <option value="location1">GLN</option>
+                            <option value="location2">GSA</option>
+                            <option value="location3">GSM</option>
+                            <option value="location4">K</option>
+                            <option value="location5">MS</option>
+                            <option value="location6">MSK</option>
+                            <option value="location7">MSM</option>
+                            <option value="location8">MTK</option>
+                            <option value="location9">SM</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="program-plankton">
+                    <h1>PLANKTON NET TYPE</h1>
+                    <form>
+                        <select id="plankton" name="plankton">
+                            <option value="" disabled selected hidden>SELECT PLANKTON NET TYPE</option>
+                            <option value="plankton1">Bongo Net</option>
+                            <option value="plankton2">Manta Net</option>
+                            <option value="plankton3">Pairovet Net</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="program-fish-stages">
+                    <h1>FISH STAGE</h1>
+                    <form>
+                        <select id="fish-stages" name="fish-stages">
+                            <option value="" disabled selected hidden>SELECT FISH STAGE</option>
+                            <option value="stage1">Pre-flexion</option>
+                            <option value="stage2">Flexion</option>
+                            <option value="stage3">Post-flexion</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
