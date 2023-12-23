@@ -113,12 +113,12 @@ body {
 }
 
 .navbar.scrolled {
-    background-color: #3eb489;
+    background-color: #0a7e8c;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar.scrolled ul {
-    background-color: #3eb489;
+    background-color: #0a7e8c;
 }
 
 .navbar.scrolled li {
@@ -133,8 +133,26 @@ body {
     color: #ffffff;
 }
 
+.navbar.scrolled ul li a:hover {
+    background-color: #a0d6b4;
+    color: #004242;
+}
 
-/* Updated styles for the paragraph */
+.navbar.scrolled ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #a0d6b4;
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    transition: width 0.5s;
+}
+
+.navbar.scrolled ul li:hover::after {
+    width: 100%;
+}
 
 .banner p {
     font-family: 'Alata', sans-serif;
