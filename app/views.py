@@ -1,11 +1,20 @@
-from django.shortcuts import render
+# app/views.py
+from django.shortcuts import render, redirect
+from .forms import SubmitForm
 
-# Create your views here.
 def index(request):
-    return render(request,"index.html")
+    return render(request, "index.html")
 
 def questionnaire(request):
-    return render(request,"questionnaire.html")
+    if request.method == 'POST':
+        form = SubmitForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('questionnaire')
+    else:
+        form = SubmitForm()
+
+    return render(request, 'questionnaire.html', {'form': SubmitForm})
 
 def about(request):
-    return render(request,"about.html")
+    return render(request, "about.html")

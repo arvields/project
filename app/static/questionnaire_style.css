@@ -40,6 +40,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
+    margin-top: 385px;
 }
 
 .container {
@@ -209,20 +210,6 @@ body {
     margin-top: 10px;
 }
 
-.program-container {
-    max-width: 700px;
-    width: 90%;
-    margin: 20px auto;
-    padding: 15px 25px;
-    text-align: left;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 21px;
-    margin-top: 1200px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-126%);
-}
-
 .card {
     max-width: 800px;
     width: 100%;
@@ -285,7 +272,7 @@ body {
     text-align: left;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 21px;
-    margin-top: 1150px;
+    margin-top: 200px;
     position: relative;
     left: 50%;
     transform: translateX(-126%);
@@ -305,7 +292,7 @@ body {
     line-height: normal;
     margin: 2px 0;
     margin-top: 15px;
-    margin-left: 5px;
+    margin-left: 0px;
     letter-spacing: 1px;
 }
 
@@ -318,11 +305,6 @@ body {
     letter-spacing: -0.32px;
     margin: 15px 0;
     margin-top: -5px;
-}
-
-.program-container .program-names form {
-    width: 100%;
-    padding: 10px;
 }
 
 .program-container .program-names label {
@@ -347,7 +329,7 @@ body {
     font-weight: 400;
     line-height: normal;
     margin-bottom: 10px;
-    margin-top: -10px;
+    margin-top: 2px;
     margin-left: -5px;
     letter-spacing: 1px;
 }
@@ -375,7 +357,7 @@ body {
     line-height: normal;
     margin: 2px 0;
     margin-top: 5px;
-    margin-left: 5px;
+    margin-left: 0px;
     letter-spacing: 1px;
 }
 
@@ -406,8 +388,9 @@ body {
     font-weight: 400;
     line-height: normal;
     margin-bottom: 10px;
-    margin-top: -10px;
+    margin-top: 2px;
     margin-left: -5px;
+    letter-spacing: 1px;
 }
 
 .program-container .program-container3 {
@@ -433,7 +416,7 @@ body {
     line-height: normal;
     margin: 2px 0;
     margin-top: 5px;
-    margin-left: 5px;
+    margin-left: 0px;
     letter-spacing: 1px;
 }
 
@@ -464,7 +447,7 @@ body {
     font-weight: 400;
     line-height: normal;
     margin-bottom: 10px;
-    margin-top: -10px;
+    margin-top: 2px;
     margin-left: -5px;
     letter-spacing: 1px;
 }
@@ -482,7 +465,7 @@ body {
     font-weight: 400;
     line-height: normal;
     margin-bottom: 10px;
-    margin-top: -10px;
+    margin-top: 2px;
     margin-left: -5px;
     letter-spacing: 1px;
 }
@@ -640,13 +623,84 @@ body {
     margin-left: -5px;
 }
 
+.program-container .program-container6 {
+    display: flex;
+    align-items: flex-start;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    /* Adjust width as needed */
+}
+
+.program-container .program-container6 h1 {
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin: 2px 0;
+    margin-top: 15px;
+    margin-left: 0px;
+    letter-spacing: 1px;
+}
+
+.program-container .program-container6 form {
+    width: 100%;
+    padding: 10px;
+}
+
+.program-container .program-container6 label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.program-container .program-container6 select {
+    width: 333%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid var(--Gray, #A6A6A6);
+    background: var(--White, #FFF);
+    border-radius: 4px;
+    color: #000000;
+    font-family: 'Alata', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    margin-left: -5px;
+    letter-spacing: 1px;
+}
+
+.program-container .program-container6 option {
+    width: 333%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid var(--Gray, #A6A6A6);
+    background: var(--White, #FFF);
+    border-radius: 4px;
+    color: #000000;
+    font-family: 'Alata', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    margin-left: -5px;
+    letter-spacing: 1px;
+}
+
 .submit-button {
-    margin-top: 10px;
-    /* Adjust as needed */
+    margin-top: 20px;
     text-align: center;
 }
 
-.submit-button a {
+.submit-button button{
     font-family: 'Alata', sans-serif;
     font-size: 20px;
     display: inline-block;
@@ -654,12 +708,13 @@ body {
     text-decoration: none;
     color: #fff;
     background-color: #2749FF;
+    border: none;
     border-radius: 50px;
-    margin-bottom: 30px;
-    /* Make it circular rectangular */
+    cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 5px;
 }
 
-.submit-button a:hover {
+.submit-button button:hover {
     background-color: #DE2323;
 }

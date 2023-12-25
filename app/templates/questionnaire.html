@@ -12,7 +12,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'questionnaire_style.css'%}">
     <script>
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             var navbar = document.querySelector('.navbar');
             if (window.scrollY > 0) {
                 navbar.classList.add('scrolled');
@@ -31,10 +31,9 @@
                 <li><a href="{% url 'questionnaire' %}">Questionnaire</a></li>
                 <li><a href="#">Results</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
-                <p>CLASSIFICATION SYSTEM FOR INDO-PACIFIC ICHTHYOPLANKTON FISH FAMILY</p>
             </ul>
+            <p>CLASSIFICATION SYSTEM FOR INDO-PACIFIC ICHTHYOPLANKTON FISH FAMILY</p>
         </div>
-        
         <div class="content">
             <div class="program-container">
                 <div class="card">
@@ -49,38 +48,33 @@
                     <h1>DOST PCAARD<br>TUNA RESEARCH PROGRAM</h1>
                     <h2>(Individual Fish Program)</h2>
                 </div>
-                <div class="program-names">
-                    <h1>NAME OF ASSESSOR</h1>
-                    <form>
+                <form method="POST" action="{% url 'questionnaire' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="program-names">
+                        <h1>NAME OF ASSESSOR</h1>
                         <input type="text" id="assessor-name" name="assessor-name">
-                    </form>
-                </div>
-                <div class="program-container2">
-                    <div class="program-date-collected">
-                        <h1>DATE (COLLECTED)</h1>
-                        <form>
+                    </div>
+
+                    <div class="program-container2">
+                        <div class="program-date-collected">
+                            <h1>DATE (COLLECTED)</h1>
                             <input type="text" id="date-collected" name="date-collected" pattern="\d{2}/\d{2}/\d{4}" placeholder="MM/DD/YYYY" required>
                             <small>Enter date in MM/DD/YYYY format</small>
-                        </form>
-                    </div>
-                    <div class="program-date-measured">
-                        <h1>DATE (MEASURED)</h1>
-                        <form>
+                        </div>
+                        <div class="program-date-measured">
+                            <h1>DATE (MEASURED)</h1>
                             <input type="text" id="date-measured" name="date-measured" pattern="\d{2}/\d{2}/\d{4}" placeholder="MM/DD/YYYY" required>
                             <small>Enter date in MM/DD/YYYY format</small>
-                        </form>
-                    </div>
-                    <div class="program-margin-of-error">
-                        <h1>MARGIN OF ERROR</h1>
-                        <form>
+                        </div>
+                        <div class="program-margin-of-error">
+                            <h1>MARGIN OF ERROR</h1>
                             <input type="text" id="margin-of-error" name="margin-of-error" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid numeric value" required>
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div class="program-container3">
-                    <div class="program-location">
-                        <h1>LOCATION (CODE)</h1>
-                        <form>
+
+                    <div class="program-container3">
+                        <div class="program-location">
+                            <h1>LOCATION (CODE)</h1>
                             <select id="location" name="location">
                                 <option value="" disabled selected hidden>SELECT LOCATION</option>
                                 <option value="location1">GLN</option>
@@ -93,109 +87,100 @@
                                 <option value="location8">MTK</option>
                                 <option value="location9">SM</option>
                             </select>
-                        </form>
-                    </div>
-                    <div class="program-plankton">
-                        <h1>PLANKTON NET TYPE</h1>
-                        <form>
+                        </div>
+                        <div class="program-plankton">
+                            <h1>PLANKTON NET TYPE</h1>
                             <select id="plankton" name="plankton">
                                 <option value="" disabled selected hidden>SELECT PLANKTON NET TYPE</option>
                                 <option value="plankton1">Bongo Net</option>
                                 <option value="plankton2">Manta Net</option>
                                 <option value="plankton3">Pairovet Net</option>
                             </select>
-                        </form>
-                    </div>
-                    <div class="program-fish-stages">
-                        <h1>FISH STAGE</h1>
-                        <form>
+                        </div>
+                        <div class="program-fish-stages">
+                            <h1>FISH STAGE</h1>
                             <select id="fish-stages" name="fish-stages">
                                 <option value="" disabled selected hidden>SELECT FISH STAGE</option>
                                 <option value="stage1">Pre-flexion</option>
                                 <option value="stage2">Flexion</option>
                                 <option value="stage3">Post-flexion</option>
                             </select>
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div class="fish-parts">
-                    <img src="{% static 'img/fish.png' %}">
-                </div>
-                <div class="container-wrapper">
-                    <div class="program-container4">
-                        <div class="meristic-container">
-                            <h2>MERISTIC MEASUREMENT</h2>
-                            <div class="program-meristic">
-                                <h1>BODY LENGTH (BL)</h1>
-                                <form>
+
+                    <div class="program-container6">
+                        <h1>DESCRIPTION</h1>
+                        <select id="description" name="description">
+                            <option value="" disabled selected hidden>SELECT DESCRIPTION</option>
+                            <option value="description1">Gut Coiled and Compact Early</option>
+                            <option value="description2">Gut Coiled Early But Not Compact</option>
+                            <option value="description3">Gut Initially Coiled: Gut Coiled Before Flexion</option>
+                            <option value="description4">Gut Initially Coiled: Gut Coiled During or After Flexion</option>
+                            <option value="description5">Gut Initially Coiled: Gut Remains Uncoiled Until Hidden by Body Wall</option>
+                            <option value="description6">Gut Initially Coiled: Gut Remains Uncoiled</option>
+                            <option value="description7">Head and Trunk Very Broad</option>
+                            <option value="description8">Head and Trunk Strongly Compressed</option>
+                            <option value="description9">Head and Trunk Neither Broad Nor Strongly Compressed: Gut Coiled and Compact Early</option>
+                            <option value="description10">Head and Trunk Neither Broad Nor Strongly Compressed: Gut Coiled Early But Not Compact</option>
+                            <option value="description11">Head and Trunk Neither Broad Nor Strongly Compressed: Gut Initially Uncoiled</option>
+                            <option value="description11">Body Dorso-Ventrally Flattened</option>
+                        </select>
+                    </div>
+
+                    <div class="fish-parts">
+                        <img src="{% static 'img/fish.png' %}">
+                    </div>
+
+                    <div class="container-wrapper">
+                        <div class="program-container4">
+                            <div class="meristic-container">
+                                <h2>MERISTIC MEASUREMENT</h2>
+                                <div class="program-meristic">
+                                    <h1>BODY LENGTH (BL)</h1>
                                     <input type="text" id="bl" name="bl" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
-                                <h1>PRE-DORSAL FIN LENGTH (PDL)</h1>
-                                <form>
+                                    <h1>PRE-DORSAL FIN LENGTH (PDL)</h1>
                                     <input type="text" id="pdl" name="pdl" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
-                                <h1>HEAD LENGTH (HL)</h1>
-                                <form>
+                                    <h1>HEAD LENGTH (HL)</h1>
                                     <input type="text" id="hl" name="hl" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
-                                <h1>SNOUT LENGTH (SNL)</h1>
-                                <form>
+                                    <h1>SNOUT LENGTH (SNL)</h1>
                                     <input type="text" id="snl" name="snl" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
-                                <h1>BODY DEPTH (BD)</h1>
-                                <form>
+                                    <h1>BODY DEPTH (BD)</h1>
                                     <input type="text" id="bd" name="bd" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
-                                <h1>EYE DIAMETER (ED)</h1>
-                                <form>
+                                    <h1>EYE DIAMETER (ED)</h1>
                                     <input type="text" id="ed" name="ed" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
-                                <h1>PRENATAL LENGTH (PAL)</h1>
-                                <form>
+                                    <h1>PRENATAL LENGTH (PAL)</h1>
                                     <input type="text" id="pal" name="pal" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
-                                <h1>VENT TO ANAL-FIN LENGTH (VAFL)</h1>
-                                <form>
+                                    <h1>VENT TO ANAL-FIN LENGTH (VAFL)</h1>
                                     <input type="text" id="vafl" name="vafl" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="program-container5">
-                        <div class="characters-container">
-                            <h2>MERISTIC CHARACTERS COUNT</h2>
-                            <div class="program-characters">
-                                <h1>DORSAL FIN (D)</h1>
-                                <form>
+                        <div class="program-container5">
+                            <div class="characters-container">
+                                <h2>MERISTIC CHARACTERS COUNT</h2>
+                                <div class="program-characters">
+                                    <h1>DORSAL FIN (D)</h1>
                                     <input type="text" id="dorsal_fin" name="dorsal_fin" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
-                                <h1>ANAL FIN (A)</h1>
-                                <form>
+                                    <h1>ANAL FIN (A)</h1>
                                     <input type="text" id="anal_fin" name="anal_fin" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
-                                <h1>PECTORAL FIN (P1)</h1>
-                                <form>
+                                    <h1>PECTORAL FIN (P1)</h1>
                                     <input type="text" id="pectoral_fin" name="pectoral_fin" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
-                                <h1>PELVIC FIN (P2)</h1>
-                                <form>
+                                    <h1>PELVIC FIN (P2)</h1>
                                     <input type="text" id="pelvic_fin" name="pelvic_fin" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
-                                <h1>CAUDAL FIN (C)</h1>
-                                <form>
+                                    <h1>CAUDAL FIN (C)</h1>
                                     <input type="text" id="caudal_fin" name="caudal_fin" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
-                                <h1>VERTEBRAE</h1>
-                                <form>
+                                    <h1>VERTEBRAE</h1>
                                     <input type="text" id="vertebrae" name="vertebrae" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="submit-button">
-                    <a href="#">SUBMIT</a>
-                </div>
+
+                    <div class="submit-button">
+                        <button type="submit">SUBMIT</button>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>
