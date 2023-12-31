@@ -14,7 +14,7 @@ def questionnaire(request):
     else:
         form = SubmitForm()
 
-    return render(request, 'questionnaire.html', {'form': SubmitForm})
+    return render(request, 'questionnaire.html', {'form': form})
 
 def about(request):
     return render(request, "about.html")
