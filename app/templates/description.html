@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alata&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600&display=swap">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'description_style.css'%}">
+    <script>
+        window.addEventListener('scroll', function () {
+            var navbar = document.querySelector('.navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        function toggleOptions(input, optionId) {
+            var additionalOptions = document.querySelectorAll('.additional-options');
+            additionalOptions.forEach(function (options) {
+                options.style.display = 'none';
+            });
+
+            var selectedOptions = document.getElementById(optionId + 'Options');
+            selectedOptions.style.display = input.checked ? 'block' : 'none';
+
+            // Disable all options in the 'description' group if the checkbox is checked
+            if (input.type === 'checkbox' && input.checked) {
+                var descriptionOptions = document.getElementsByName('description');
+                descriptionOptions.forEach(function (option) {
+                    if (option.type === 'radio') {
+                        option.checked = false;
+                    }
+                });
+            }
+
+            if (input.checked) {
+                var descriptionOptions = document.getElementsByName('description');
+                descriptionOptions.forEach(function (option) {
+                    if (option !== input) {
+                        option.disabled = true;
+                    }
+                });
+            } else {
+                var descriptionOptions = document.getElementsByName('description');
+                descriptionOptions.forEach(function (option) {
+                    option.disabled = false;
+                });
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'questionnaire' %}">Questionnaire</a></li>
+                <li><a href="{% url 'results' %}">Results</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+            </ul>
+            <p>CLASSIFICATION SYSTEM FOR INDO-PACIFIC ICHTHYOPLANKTON FISH FAMILY</p>
+        </div>
+        <div class="content">
+            <div class="program-container">
+                <div class="card">
+                    <div class="logo-container">
+                        <img src="{% static 'img/logo.png' %}" class="logo" alt="Logo">
+                        <h1>REPUBLIC OF THE PHILIPPINES
+                            <br>MINDANAO STATE UNIVERSITY - GENERAL SANTOS
+                            <br>Barangay Fatima, General Santos City
+                        </h1>
+                        <img src="{% static 'img/logo2.png' %}" class="logo" alt="Logo">
+                    </div>
+                    <h1>DOST PCAARD<br>TUNA RESEARCH PROGRAM</h1>
+                    <h2>(Individual Fish Program)</h2>
+                </div>
+
+                <div class="program-container6">
+                    <h1>The details you provided do not belong to the 'Body Very Elongate (BL < 10%BL) category. 
+                        <br><br>Please select additional shape characteristic description.</h1>
+                        <br>
+                    <div id="description">
+                        <label>
+                            <input type="radio" name="description" value="Gut Coiled and Compact Early"> Gut Coiled and Compact Early
+                        </label>
+                        <label>
+                            <input type="radio" name="description" value="Gut Coiled Early But Not Compact"> Gut Coiled Early But Not Compact
+                        </label>
+                        <label>
+                            <input type="checkbox" name="description" value="Gut Initially Coiled" onclick="toggleOptions(this, 'gutCoiled')"> Gut Initially Coiled
+                        </label>
+                        <div id="gutCoiledOptions" class="additional-options" style="display: none;">
+                            <label>
+                                <input type="radio" name="additionalOptions" value="Gut Coiled Before Flexion"> Gut Coiled Before Flexion
+                            </label>
+                            <label>
+                                <input type="radio" name="additionalOptions" value="Gut Coiled During or After Flexion"> Gut Coiled During or After Flexion
+                            </label>
+                            <label>
+                                <input type="radio" name="additionalOptions" value="Gut Remains Uncoiled Until Hidden by Body Wall"> Gut Remains Uncoiled Until Hidden by Body Wall
+                            </label>
+                            <label>
+                                <input type="radio" name="additionalOptions" value="Gut Remains Uncoiled"> Gut Remains Uncoiled
+                            </label>
+                        </div>
+                        <label>
+                            <input type="radio" name="description" value="Head and Trunk Very Broad"> Head and Trunk Very Broad
+                        </label>
+                        <label>
+                            <input type="radio" name="description" value="Head and Trunk Strongly Compressed"> Head and Trunk Strongly Compressed
+                        </label>
+                        <label>
+                            <input type="checkbox" name="description" value="Head and Trunk Neither Broad Nor Strongly Compressed" onclick="toggleOptions(this, 'headTrunk')"> Head and Trunk Neither Broad Nor Strongly Compressed
+                        </label>
+                        <div id="headTrunkOptions" class="additional-options" style="display: none;"> 
+                            <label>
+                                <input type="radio" name="additionalOptions" value="Head and Trunk Neither Broad Nor Strongly Compressed: Gut Coiled and Compact Early"> Gut Coiled and Compact Early
+                            </label>
+                            <label>
+                                <input type="radio" name="additionalOptions" value="Head and Trunk Neither Broad Nor Strongly Compressed: Gut Coiled Early But Not Compact"> Gut Coiled Early But Not Compact
+                            </label>
+                            <label>
+                                <input type="radio" name="additionalOptions" value="Head and Trunk Neither Broad Nor Strongly Compressed: Gut Initially Uncoiled"> Gut Initially Uncoiled
+                            </label>
+                        </div>
+                        <label>
+                            <input type="radio" name="description" value="Body Dorso-Ventrally Flattened"> Body Dorso-Ventrally Flattened
+                        </label>
+                        <div class="submit-button">
+                            <button type="button">SUBMIT</button>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

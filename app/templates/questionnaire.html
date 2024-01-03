@@ -20,6 +20,35 @@
                 navbar.classList.remove('scrolled');
             }
         });
+    
+        function checkAndSubmit() {
+            var bdValue = parseFloat(document.getElementById('bd').value);
+            var blValue = parseFloat(document.getElementById('bl').value);
+
+            if (bdValue / blValue > 0.10) {
+                saveFormData();
+                window.location.href = "{% url 'description' %}";
+            } else {
+                document.getElementById('questionnaireForm').submit();
+                setTimeout(function () {
+                    window.location.href = "{% url 'full_results' %}";
+                }, 100);
+            }
+        }
+
+        function saveFormData() {
+            var formData = {};
+            var formInputs = document.getElementById('questionnaireForm').elements;
+            
+            for (var i = 0; i < formInputs.length; i++) {
+                var input = formInputs[i];
+                if (input.type !== "button" && input.name) {
+                    formData[input.name] = input.value;
+                }
+            }
+
+            localStorage.setItem('savedFormData', JSON.stringify(formData));
+        }
     </script>
 </head>
 
@@ -29,7 +58,7 @@
             <ul>
                 <li><a href="{% url 'index' %}">Home</a></li>
                 <li><a href="{% url 'questionnaire' %}">Questionnaire</a></li>
-                <li><a href="#">Results</a></li>
+                <li><a href="{% url 'results' %}">Results</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
             </ul>
             <p>CLASSIFICATION SYSTEM FOR INDO-PACIFIC ICHTHYOPLANKTON FISH FAMILY</p>
@@ -48,7 +77,7 @@
                     <h1>DOST PCAARD<br>TUNA RESEARCH PROGRAM</h1>
                     <h2>(Individual Fish Program)</h2>
                 </div>
-                <form method="POST" action="{% url 'questionnaire' %}" enctype="multipart/form-data">
+                <form id="questionnaireForm" method="POST" action="{% url 'questionnaire' %}" enctype="multipart/form-data" onsubmit="checkAndSubmit()">
                     {% csrf_token %}
                     <div class="program-names">
                         <h1>NAME OF ASSESSOR</h1>
@@ -108,25 +137,6 @@
                         </div>
                     </div>
 
-                    <div class="program-container6">
-                        <h1>DESCRIPTION</h1>
-                        <select id="description" name="description">
-                            <option value="" disabled selected hidden>SELECT DESCRIPTION</option>
-                            <option value="Gut Coiled and Compact Early">Gut Coiled and Compact Early</option>
-                            <option value="Gut Coiled Early But Not Compact">Gut Coiled Early But Not Compact</option>
-                            <option value="Gut Initially Coiled: Gut Coiled Before Flexion">Gut Initially Coiled: Gut Coiled Before Flexion</option>
-                            <option value="Gut Initially Coiled: Gut Coiled During or After Flexion">Gut Initially Coiled: Gut Coiled During or After Flexion</option>
-                            <option value=">Gut Initially Coiled: Gut Remains Uncoiled Until Hidden by Body Wall">Gut Initially Coiled: Gut Remains Uncoiled Until Hidden by Body Wall</option>
-                            <option value="Gut Initially Coiled: Gut Remains Uncoiled">Gut Initially Coiled: Gut Remains Uncoiled</option>
-                            <option value=">Head and Trunk Very Broad">Head and Trunk Very Broad</option>
-                            <option value="Head and Trunk Strongly Compressed">Head and Trunk Strongly Compressed</option>
-                            <option value="Head and Trunk Neither Broad Nor Strongly Compressed: Gut Coiled and Compact Early">Head and Trunk Neither Broad Nor Strongly Compressed: Gut Coiled and Compact Early</option>
-                            <option value="Head and Trunk Neither Broad Nor Strongly Compressed: Gut Coiled Early But Not Compact">Head and Trunk Neither Broad Nor Strongly Compressed: Gut Coiled Early But Not Compact</option>
-                            <option value="Head and Trunk Neither Broad Nor Strongly Compressed: Gut Initially Uncoiled">Head and Trunk Neither Broad Nor Strongly Compressed: Gut Initially Uncoiled</option>
-                            <option value="Body Dorso-Ventrally Flattened">Body Dorso-Ventrally Flattened</option>
-                        </select>
-                    </div>
-
                     <div class="fish-parts">
                         <img src="{% static 'img/fish.png' %}">
                     </div>
@@ -152,7 +162,7 @@
                                     <input type="text" id="pal" name="pal" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
                                     <h1>VENT TO ANAL-FIN LENGTH (VAFL)</h1>
                                     <input type="text" id="vafl" name="vafl" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid value">
-                                </div>
+                                </div>                                
                             </div>
                         </div>
                         <div class="program-container5">
@@ -177,8 +187,8 @@
                     </div>
 
                     <div class="submit-button">
-                        <button type="submit">SUBMIT</button>
-                    </div>
+                        <button type="button" onclick="checkAndSubmit()">SUBMIT</button>
+                    </div>                    
 
                 </form>
             </div>
