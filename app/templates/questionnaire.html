@@ -31,7 +31,13 @@
             } else {
                 document.getElementById('questionnaireForm').submit();
                 setTimeout(function () {
-                    window.location.href = "{% url 'full_results' %}";
+                    var sampleNo = document.getElementById('sample_no').value;
+                    if (sampleNo) {
+                        var fullResultsUrl = "{% url 'full_results' sample_no=0 %}".replace('0', sampleNo);
+                        window.location.href = fullResultsUrl;
+                    } else {
+                        console.error('Sample number is not available.');
+                    }
                 }, 100);
             }
         }
@@ -79,6 +85,7 @@
                 </div>
                 <form id="questionnaireForm" method="POST" action="{% url 'questionnaire' %}" enctype="multipart/form-data" onsubmit="checkAndSubmit()">
                     {% csrf_token %}
+                    <input type="hidden" id="sample_no" name="sample_no" value="{{ sample_no }}">
                     <div class="program-names">
                         <h1>NAME OF ASSESSOR</h1>
                         <input type="text" id="assessor-name" name="assessor_name">

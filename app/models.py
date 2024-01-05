@@ -59,7 +59,7 @@ class FishRatio(models.Model):
 
 class FamilyScorecard(models.Model):
     fscorecard_no = models.AutoField(primary_key=True)
-    sample_no = models.ForeignKey('SampleMaster', models.DO_NOTHING, db_column='sample_no', blank=True, null=True)
+    sample_no = models.ForeignKey('SampleMaster', models.CASCADE, db_column='sample_no', blank=True, null=True)
     ffamily_name = models.CharField(max_length=45, blank=True, null=True)
     bd_score = models.SmallIntegerField(blank=True, null=True)
     ed_score = models.SmallIntegerField(blank=True, null=True)
@@ -70,6 +70,7 @@ class FamilyScorecard(models.Model):
     vafl_score = models.SmallIntegerField(blank=True, null=True)
     sample_remarks = models.CharField(max_length=150, blank=True, null=True)
     kbs_remarks = models.CharField(max_length=150, blank=True, null=True)
+    morphometric_sum = models.CharField(max_length=10, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -88,6 +89,7 @@ class GenusScorecard(models.Model):
     pelvic_count_score = models.SmallIntegerField(blank=True, null=True)
     sample_remarks = models.CharField(max_length=150, blank=True, null=True)
     kbs_remarks = models.CharField(max_length=150, blank=True, null=True)
+    meristic_sum = models.CharField(max_length=10, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -95,7 +97,7 @@ class GenusScorecard(models.Model):
 
 class SummaryRanking(models.Model):
     summary_ranking_no = models.AutoField(primary_key=True)
-    sample_no = models.ForeignKey(SampleMaster, models.DO_NOTHING, db_column='sample_no')
+    sample_no = models.ForeignKey(SampleMaster, models.CASCADE, db_column='sample_no')
     ffamily_name = models.CharField(max_length=45, blank=True, null=True)
     fgenus_name = models.CharField(max_length=45, blank=True, null=True)
     meristic_sum = models.CharField(max_length=10, blank=True, null=True)
@@ -110,3 +112,15 @@ class SummaryRanking(models.Model):
     class Meta:
         managed = False
         db_table = 'summary_ranking'
+
+class ShapeCharacteristicResult(models.Model):
+    result_id = models.AutoField(primary_key=True)
+    sample_no = models.ForeignKey(SampleMaster, models.CASCADE, db_column='sample_no')
+    fgroup_no = models.IntegerField(blank=True, null=True)
+    bd_characteristic = models.CharField(max_length=20, blank=True, null=True)
+    hl_characteristic = models.CharField(max_length=20, blank=True, null=True)
+    ed_characteristic = models.CharField(max_length=20, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'shape_characteristic_result'

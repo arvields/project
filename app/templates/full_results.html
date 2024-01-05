@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     {% load static %}
     <link rel="stylesheet" href="{% static 'full_results.css'%}">
     <script>
@@ -47,6 +48,166 @@
                     </div>
                     <h1>DOST PCAARD<br>TUNA RESEARCH PROGRAM</h1>
                     <h2>(Individual Fish Program)</h2>
+                    <div class="program-container1">
+                        <div class="program-container1_1">
+                            <pre><h2>Specimen No.       :   {{ sample.sample_no }}</h2></pre>
+                            <pre><h2>Name of Assessor   :   {{ sample.assessor_name }}</h2></pre>
+                            <pre><h2>Date Collected     :   {{ sample.date_collected }}</h2></pre>
+                            <pre><h2>Date Measured      :   {{ sample.date_measured }}</h2></pre>
+                        </div>
+                        <div class="program-container1_2">
+                            <pre><h2>Margin of Error    :   {{ sample.margin_no }}</h2></pre>
+                            <pre><h2>Location (Code)    :   {{ sample.location_code }}</h2></pre>
+                            <pre><h2>Plankton Net Type  :   {{ sample.plankton_net_type }}</h2></pre>
+                            <pre><h2>Timestamp          :   {{ classification_results.sample_timestamp }}</h2></pre>
+                        </div>
+                    </div>
+                    <div class="program-container2">
+                        <div class="program-container2_1">
+                            <pre><h2>Fish Stage         :   {{ sample.stage_name }}</h2></pre>
+                            <pre><h2>Fish Group No.     :   {{ classification_results.fgroup_no }}</h2></pre>
+                        </div>
+                        <div class="program-container2_2">
+                            <h1>SHAPE CHARACTERISTICS</h1>
+                            <pre><h2>Body Depth (BD)    :   {{ shape_characteristic_result.bd_characteristic }}</h2></pre>
+                            <pre><h2>Head Length (HL)   :   {{ shape_characteristic_result.hl_characteristic }}</h2></pre>
+                            <pre><h2>Eye Diameter (ED)  :   {{ shape_characteristic_result.ed_characteristic }}</h2></pre>
+                        </div>
+                    </div>
+                    <div class="program-container3">
+                        <div class="program-container3_1">
+                            <h1>MERISTIC MEASUREMENT</h1>
+                            <pre><h2>BL    : {{ sample.bl }}</h2></pre>
+                            <pre><h2>PDL   : {{ sample.pdl }}</h2></pre>
+                            <pre><h2>HL    : {{ sample.hl }}</h2></pre>
+                            <pre><h2>SnL   : {{ sample.snl }}</h2></pre>
+                            <pre><h2>ED    : {{ sample.ed }}</h2></pre>
+                            <pre><h2>BD    : {{ sample.bd }}</h2></pre>
+                            <pre><h2>PAL   : {{ sample.pal }}</h2></pre>
+                            <pre><h2>VAFL  : {{ sample.vafl }}</h2></pre>
+                        </div>
+                        <div class="program-container3_2">
+                            <h1>MERISTIC MEASUREMENT RATIO</h1>
+                            <pre><h2>BD/BL    : {{ fish_ratios.bd_bl_ratio }}</h2></pre>
+                            <pre><h2>PDL/BL   : {{ fish_ratios.pdl_bl_ratio }}</h2></pre>
+                            <pre><h2>HL/BL    : {{ fish_ratios.hl_bl_ratio }}</h2></pre>
+                            <pre><h2>SnL/BL   : {{ fish_ratios.snl_bl_ratio }}</h2></pre>
+                            <pre><h2>ED/BL    : {{ fish_ratios.ed_bl_ratio }}</h2></pre>
+                            <pre><h2>PAL/BL   : {{ fish_ratios.pal_bl_ratio }}</h2></pre>
+                            <pre><h2>VAFL/BL  : {{ fish_ratios.vafl_bl_ratio }}</h2></pre>
+                        </div>
+                        <div class="program-container3_3">
+                            <h1>MERISTIC CHARACTERS COUNT</h1>
+                            <pre><h2>DORSAL      : {{ sample.dorsal_count }}</h2></pre>
+                            <pre><h2>ANAL        : {{ sample.anal_count }}</h2></pre>
+                            <pre><h2>PELVIC      : {{ sample.pelvic_count }}</h2></pre>
+                            <pre><h2>CAUDAL      : {{ sample.caudal_count }}</h2></pre>
+                            <pre><h2>VERTEBRAE   : {{ sample.vertebrae_count }}</h2></pre>
+                        </div>
+                    </div>
+                    <div class="fish-family-table">
+                        <h1>A. List of Candidate Fish Families With Their Corresponding Scores</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Candidate Fish Family</th>
+                                    <th>BD</th>
+                                    <th>HL</th>
+                                    <th>ED</th>
+                                    <th>PDL</th>
+                                    <th>SnL</th>
+                                    <th>PAL</th>
+                                    <th>VAFL</th>
+                                    <th>Scores</th>
+                                    <th>Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for family_scorecard in family_scorecards %}
+                                    <tr>
+                                        <td>{{ family_scorecard.ffamily_name }}</td>
+                                        <td style="text-align: center;">{{ family_scorecard.bd_score }}</td>
+                                        <td style="text-align: center;">{{ family_scorecard.ed_score }}</td>
+                                        <td style="text-align: center;">{{ family_scorecard.hl_score }}</td>
+                                        <td style="text-align: center;">{{ family_scorecard.pdl_score }}</td>
+                                        <td style="text-align: center;">{{ family_scorecard.snl_score }}</td>
+                                        <td style="text-align: center;">{{ family_scorecard.pal_score }}</td>
+                                        <td style="text-align: center;">{{ family_scorecard.vafl_score }}</td>                                        
+                                        <td style="text-align: center;">{{ family_scorecard.morphometric_sum }}</td>
+                                        <td style="font-size: 15px;">{{ family_scorecard.sample_remarks }}<br><br>{{ family_scorecard.kbs_remarks }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="fish-genus-table">
+                        <h1>B. List of Candidate Fish Genus With Their Corresponding Scores</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Candidate Fish Family</th>
+                                    <th>Candidate Fish Genus</th>
+                                    <th>Dorsal</th>
+                                    <th>Anal</th>
+                                    <th>Pectoral</th>
+                                    <th>Caudal</th>
+                                    <th>Vertebrae</th>
+                                    <th>Pelvic</th>
+                                    <th>Scores</th>
+                                    <th>Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for genus_scorecard in genus_scorecards %}
+                                    <tr>
+                                        <td>{{ genus_scorecard.ffamily_name }}</td>
+                                        <td>{{ genus_scorecard.fgenus_name }}</td>
+                                        <td style="text-align: center;">{{ genus_scorecard.dorsal_count_score }}</td>
+                                        <td style="text-align: center;">{{ genus_scorecard.anal_count_score }}</td>
+                                        <td style="text-align: center;">{{ genus_scorecard.pectoral_count_score }}</td>
+                                        <td style="text-align: center;">{{ genus_scorecard.caudal_count_score }}</td>
+                                        <td style="text-align: center;">{{ genus_scorecard.vertebrae_count_score }}</td>
+                                        <td style="text-align: center;">{{ genus_scorecard.pelvic_count_score }}</td>
+                                        <td style="text-align: center;">{{ genus_scorecard.meristic_sum }}</td>
+                                        <td style="font-size: 15px;">{{ genus_scorecard.sample_remarks }}<br><br>{{ family_scorecard.kbs_remarks }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="final-rank-table">
+                        <h1>C. Final Ranking of Fish Families</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Candidate Fish Family</th>
+                                    <th>Candidate Fish Genus</th>
+                                    <th>Morphometric Scores</th>
+                                    <th>Meristic Scores</th>
+                                    <th>Rank</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for summary_ranking in summary_rankings %}
+                                    <tr>
+                                        <td>{{ summary_ranking.ffamily_name }}</td>
+                                        <td>{{ summary_ranking.fgenus_name }}</td>
+                                        <td style="text-align: center;">{{ summary_ranking.morphometric_sum }}</td>
+                                        <td style="text-align: center;">{{ summary_ranking.meristic_sum }}</td>
+                                        <td style="text-align: center;">{{ summary_ranking.rank }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="divider">
+                        <tr>
+                            <td colspan="5">....................................................................................................................................................................</td>
+                        </tr>
+                        <a href="/">
+                            <h1>EXIT</h1>
+                        </a>
+                    </div>             
                 </div>
             </div>
         </div>

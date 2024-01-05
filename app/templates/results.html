@@ -21,6 +21,18 @@
                 navbar.classList.remove('scrolled');
             }
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var rows = document.querySelectorAll(".clickable-row");
+            rows.forEach(function (row) {
+                row.addEventListener("click", function () {
+                    var href = row.getAttribute("data-href");
+                    if (href) {
+                        window.location.href = href;
+                    }
+                });
+            });
+        });
     </script>
 </head>
 
@@ -48,44 +60,47 @@
                     </div>
                     <h1>DOST PCAARD<br>TUNA RESEARCH PROGRAM</h1>
                     <h2>(Individual Fish Program)</h2>
-                <div class="program-container1">
-                    <h1>SUMMARY OF RESULTS</h1>
-                    <<div class="table-row">
-                        <div class="section">SPECIMEN</div>
-                        <div class="section">GROUP NO.</div>
-                        <div class="section">CANDIDATE FAMILY</div>
-                        <div class="section">GENUS</div>
-                        <div class="section">RANK</div>
-                    </div>                    
-                    <div class="results-table">
-                        <table>
-                            <tbody>
-                                {% if classification_results %}
-                                    {% for result in classification_results %}
-                                        {% ifchanged result.sample_no %}
-                                            {% if not forloop.first %}
-                                                <tr>
-                                                    <td colspan="5">..................................................................................................</td>
+                    <div class="program-container1">
+                        <h1>SUMMARY OF RESULTS</h1>
+                        <div class="table-row">
+                            <div class="section">SPECIMEN</div>
+                            <div class="section">GROUP NO.</div>
+                            <div class="section">CANDIDATE FAMILY</div>
+                            <div class="section">GENUS</div>
+                            <div class="section">RANK</div>
+                        </div>                    
+                        <div class="results-table">
+                            <table>
+                                <tbody>
+                                    {% if classification_results %}
+                                        {% for result in classification_results %}
+                                            {% ifchanged result.sample_no %}
+                                                {% if not forloop.first %}
+                                                    <tr>
+                                                        <td colspan="5">..................................................................................................</td>
+                                                    </tr>
+                                                {% endif %}
+                                            {% endifchanged %}
+                                            <a href="{% url 'full_results' sample_no=result.sample_no %}">
+                                                <tr class="clickable-row" data-href="{% url 'full_results' sample_no=result.sample_no %}">
+                                                    <td>Specimen {{ result.sample_no }}</td>
+                                                    <td>{{ result.fgroup_no }}</td>
+                                                    <td>{{ result.ffamily_name }}</td>
+                                                    <td>{{ result.fgenus_name }}</td>
+                                                    <td>{{ result.rank }}</td>
                                                 </tr>
-                                            {% endif %}
-                                        {% endifchanged %}
+                                            </a>
+                                        {% endfor %}
+                                    {% else %}
                                         <tr>
-                                            <td>Specimen {{ result.sample_no }}</td>
-                                            <td>{{ result.fgroup_no }}</td>
-                                            <td>{{ result.ffamily_name }}</td>
-                                            <td>{{ result.fgenus_name }}</td>
-                                            <td>{{ result.rank }}</td>
+                                            <td colspan="5">No Results Available</td>
                                         </tr>
-                                    {% endfor %}
-                                {% else %}
-                                    <tr>
-                                        <td colspan="5">No Results Available</td>
-                                    </tr>
-                                {% endif %}
-                            </tbody>
-                        </table>
-                    </div>                                                                                  
-                </div>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div>                                                                                  
+                    </div>  
+                </div>                  
             </div>
         </div>
     </div>

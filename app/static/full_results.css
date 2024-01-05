@@ -194,7 +194,7 @@ body {
 }
 
 .program-container {
-    max-width: 1131px;
+    max-width: 1200px;
     width: 100%;
     margin: -750px auto 0; /* Adjusted margin to control distance from the navbar */
     padding: 15px 25px;
@@ -256,4 +256,335 @@ body {
     letter-spacing: -0.32px;
     text-align: center;
     margin: 15px 0;
+}
+
+.program-container1 {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    background-color: #EDEDED;
+    border-radius: 30px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.program-container1 h1 {
+    color: #000000;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: normal;
+    margin: 2px 0;
+    margin-top: 15px;
+    margin-left: 15px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.program-container1 h2 {
+    color: #000000;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 15px;
+    line-height: normal;
+    margin: 2px 0;
+    margin-top: 5px; /* Adjusted value */
+    margin-left: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 5px; /* Adjusted value */
+    text-align: left;
+}
+
+.program-container1 .program-container1_1,
+.program-container1 .program-container1_2 {
+    flex: 1;
+}
+
+.program-container2 {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    background-color: #EDEDED;
+    border-radius: 30px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.program-container2 h1 {
+    color: #000000;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: normal;
+    margin: 2px 0;
+    margin-top: 5px;
+    margin-left: 15px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.program-container2 h2 {
+    color: #000000;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 15px;
+    line-height: normal;
+    margin: 2px 0;
+    margin-top: 5px; /* Adjusted value */
+    margin-left: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 5px; /* Adjusted value */
+    text-align: left;
+}
+
+.program-container2 .program-container2_1,
+.program-container2 .program-container2_2 {
+    flex: 1;
+}
+
+.program-container3 {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    background-color: #EDEDED;
+    border-radius: 30px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.program-container3 h1 {
+    color: #000000;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: normal;
+    margin: 2px 0;
+    margin-top: 15px;
+    margin-left: 15px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.program-container3 h2 {
+    color: #000000;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 15px;
+    line-height: normal;
+    margin: 2px 0;
+    margin-top: 5px; /* Adjusted value */
+    margin-left: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 5px; /* Adjusted value */
+    text-align: left;
+}
+
+.program-container3 .program-container3_1,
+.program-container3 .program-container3_2,
+.program-container3 .program-container3_3 {
+    flex: 1;
+}
+
+.fish-family-table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.fish-family-table h1{
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 16px;
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.fish-family-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fish-family-table th{
+    border: 2px dotted #000000;
+    padding: 10px;
+    font-family: 'Roboto Mono', sans-serif;
+    color: #000000;
+    text-align: center;
+}
+
+.fish-family-table td {
+    border: 2px dotted #000000;
+    padding: 8px;
+    text-align: left;
+    color: #000;
+    font-family: 'Roboto Mono', sans-serif;
+}
+
+.fish-family-table th {
+    font-family: 'Roboto Mono', sans-serif;
+    color: #000000;
+    text-align: center;
+}
+
+.fish-family-table tbody tr:nth-child(even) {
+    color: #000000;
+}
+
+.fish-family-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.fish-genus-table {
+    width: 100%;
+    margin: 20px auto;
+    font-family: 'Roboto Mono', sans-serif;
+}
+
+.fish-genus-table h1 {
+    font-size: 16px;
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.fish-genus-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fish-genus-table th, .fish-genus-table td {
+    border: 2px dotted #000000;
+    text-align: left;
+    padding: 10px; /* Adjust padding as needed */
+    color: #000;
+    font-family: 'Roboto Mono', sans-serif;
+}
+
+.fish-genus-table th {
+    text-align: center;
+}
+
+/* Adjust the widths as needed */
+.fish-genus-table td:nth-child(1),
+.fish-genus-table th:nth-child(1) {
+    width: 10%;
+}
+
+.fish-genus-table td:nth-child(2),
+.fish-genus-table th:nth-child(2) {
+    width: 10%; 
+}
+
+.fish-genus-table td:nth-child(3),
+.fish-genus-table th:nth-child(3) {
+    width: 10%; 
+}
+
+.fish-genus-table td:nth-child(4),
+.fish-genus-table th:nth-child(4) {
+    width: 10%; 
+}
+
+.fish-genus-table td:nth-child(5),
+.fish-genus-table th:nth-child(5) {
+    width: 10%; 
+}
+
+.fish-genus-table td:nth-child(6),
+.fish-genus-table th:nth-child(6) {
+    width: 10%; 
+}
+
+.fish-genus-table td:nth-child(7),
+.fish-genus-table th:nth-child(7) {
+    width: 10%; 
+}
+
+.fish-genus-table td:nth-child(8),
+.fish-genus-table th:nth-child(8) {
+    width: 10%; 
+}
+
+.fish-genus-table td:nth-child(9),
+.fish-genus-table th:nth-child(9) {
+    width: 10%; 
+}
+
+.fish-genus-table td:nth-child(10),
+.fish-genus-table th:nth-child(10) {
+    width: 10%; 
+}
+
+.fish-genus-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.final-rank-table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.final-rank-table h1{
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 16px;
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.final-rank-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.final-rank-table th{
+    border: 2px dotted #000000;
+    padding: 10px;
+    font-family: 'Roboto Mono', sans-serif;
+    color: #000000;
+    text-align: center;
+}
+
+.final-rank-table td {
+    border: 2px dotted #000000;
+    padding: 8px;
+    text-align: left;
+    color: #000;
+    font-family: 'Roboto Mono', sans-serif;
+}
+
+.final-rank-table th {
+    font-family: 'Roboto Mono', sans-serif;
+    color: #000000;
+    text-align: center;
+}
+
+.final-rank-table tbody tr:nth-child(even) {
+    color: #000000;
+}
+
+.final-rank-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.divider {
+    font-family: 'Alata', sans-serif;
+    font-size: 24px;
+    color: #000000;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.divider h1{
+    font-family: 'Alata', sans-serif;
+    font-size: 30px;
+    color: #000000;
+    font-weight: 400;
 }

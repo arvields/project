@@ -24,6 +24,5 @@ urlpatterns = [
     path('about/', about, name="about"),
     path('description/', description, name="description"),
     path('results/', results, name="results"),
-    path('full_results/', full_results, name="full_results"),
-
+    path('full_results/<int:sample_no>/', full_results, name='full_results'),
 ]
