@@ -110,7 +110,12 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Candidate Fish Family</th>
+                                    <th rowspan="2" style="width: 50px;">Candidate Fish Family</th>
+                                    <th colspan="7">Morphometric Measurements</th>
+                                    <th rowspan="2">Scores</th>
+                                    <th rowspan="2">Remarks</th>
+                                </tr>
+                                <tr>
                                     <th>BD</th>
                                     <th>HL</th>
                                     <th>ED</th>
@@ -118,8 +123,6 @@
                                     <th>SnL</th>
                                     <th>PAL</th>
                                     <th>VAFL</th>
-                                    <th>Scores</th>
-                                    <th>Remarks</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -132,29 +135,33 @@
                                         <td style="text-align: center;">{{ family_scorecard.pdl_score }}</td>
                                         <td style="text-align: center;">{{ family_scorecard.snl_score }}</td>
                                         <td style="text-align: center;">{{ family_scorecard.pal_score }}</td>
-                                        <td style="text-align: center;">{{ family_scorecard.vafl_score }}</td>                                        
+                                        <td style="text-align: center;">{{ family_scorecard.vafl_score }}</td>
                                         <td style="text-align: center;">{{ family_scorecard.morphometric_sum }}</td>
-                                        <td style="font-size: 15px;">{{ family_scorecard.sample_remarks }}<br><br>{{ family_scorecard.kbs_remarks }}</td>
+                                        <td style="font-size: 15px;">{{ family_scorecard.sample_remarks }}<br>{{ family_scorecard.kbs_remarks }}</td>
                                     </tr>
                                 {% endfor %}
                             </tbody>
                         </table>
                     </div>
+                    
                     <div class="fish-genus-table">
                         <h1>B. List of Candidate Fish Genus With Their Corresponding Scores</h1>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Candidate Fish Family</th>
-                                    <th>Candidate Fish Genus</th>
-                                    <th>Dorsal</th>
-                                    <th>Anal</th>
-                                    <th>Pectoral</th>
-                                    <th>Caudal</th>
-                                    <th>Vertebrae</th>
-                                    <th>Pelvic</th>
-                                    <th>Scores</th>
-                                    <th>Remarks</th>
+                                    <th rowspan="2" style="width: 50px; font-size: 15px;">Candidate Fish Family</th>
+                                    <th rowspan="2" style="width: 50px; font-size: 15px;">Candidate Fish Genus</th>
+                                    <th colspan="6">Meristic Characters Count</th>
+                                    <th rowspan="2">Scores</th>
+                                    <th rowspan="2">Remarks</th>
+                                </tr>
+                                <tr>
+                                    <th style="font-size: 15px">Dorsal</th>
+                                    <th style="font-size: 15px">Anal</th>
+                                    <th style="font-size: 15px">Pectoral</th>
+                                    <th style="font-size: 15px">Caudal</th>
+                                    <th style="font-size: 15px">Vertebrae</th>
+                                    <th style="font-size: 15px">Pelvic</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -169,7 +176,7 @@
                                         <td style="text-align: center;">{{ genus_scorecard.vertebrae_count_score }}</td>
                                         <td style="text-align: center;">{{ genus_scorecard.pelvic_count_score }}</td>
                                         <td style="text-align: center;">{{ genus_scorecard.meristic_sum }}</td>
-                                        <td style="font-size: 15px;">{{ genus_scorecard.sample_remarks }}<br><br>{{ family_scorecard.kbs_remarks }}</td>
+                                        <td style="font-size: 15px;">{{ genus_scorecard.sample_remarks }}<br><br>{{ genus_scorecard.kbs_remarks }}</td>
                                     </tr>
                                 {% endfor %}
                             </tbody>
@@ -202,7 +209,7 @@
                     </div>
                     <div class="divider">
                         <tr>
-                            <td colspan="5">....................................................................................................................................................................</td>
+                            <td colspan="5">...................................................................................................................................................................................................</td>
                         </tr>
                         <a href="/">
                             <h1>EXIT</h1>

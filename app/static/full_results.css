@@ -194,7 +194,7 @@ body {
 }
 
 .program-container {
-    max-width: 1200px;
+    max-width: 1400px;
     width: 100%;
     margin: -750px auto 0; /* Adjusted margin to control distance from the navbar */
     padding: 15px 25px;
@@ -209,8 +209,8 @@ body {
 
 
 .card {
-    max-width: 1000px;
-    width: 100%;
+    max-width: 1400px;
+    width: 90%;
     position: relative;
     height: auto;
     margin: 20px auto; /* Set margin to 'auto' to center horizontally */
@@ -261,12 +261,12 @@ body {
 .program-container1 {
     display: flex;
     flex-direction: row;
-    width: 95%;
+    width: 80%;
     background-color: #EDEDED;
     border-radius: 30px;
     padding: 15px;
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
     justify-content: space-between;
 }
 
@@ -304,7 +304,7 @@ body {
 .program-container2 {
     display: flex;
     flex-direction: row;
-    width: 95%;
+    width: 80%;
     background-color: #EDEDED;
     border-radius: 30px;
     padding: 15px;
@@ -347,7 +347,7 @@ body {
 .program-container3 {
     display: flex;
     flex-direction: row;
-    width: 95%;
+    width: 80%;
     background-color: #EDEDED;
     border-radius: 30px;
     padding: 15px;
@@ -441,10 +441,11 @@ body {
 .fish-genus-table {
     width: 100%;
     margin: 20px auto;
-    font-family: 'Roboto Mono', sans-serif;
+    border-collapse: collapse;
 }
 
-.fish-genus-table h1 {
+.fish-genus-table h1{
+    font-family: 'Roboto Mono', sans-serif;
     font-size: 16px;
     text-align: left;
     font-weight: bold;
@@ -457,67 +458,30 @@ body {
     border-collapse: collapse;
 }
 
-.fish-genus-table th, .fish-genus-table td {
+.fish-genus-table th{
     border: 2px dotted #000000;
+    padding: 10px;
+    font-family: 'Roboto Mono', sans-serif;
+    color: #000000;
+    text-align: center;
+}
+
+.fish-genus-table td {
+    border: 2px dotted #000000;
+    padding: 8px;
     text-align: left;
-    padding: 10px; /* Adjust padding as needed */
     color: #000;
     font-family: 'Roboto Mono', sans-serif;
 }
 
 .fish-genus-table th {
+    font-family: 'Roboto Mono', sans-serif;
+    color: #000000;
     text-align: center;
 }
 
-/* Adjust the widths as needed */
-.fish-genus-table td:nth-child(1),
-.fish-genus-table th:nth-child(1) {
-    width: 10%;
-}
-
-.fish-genus-table td:nth-child(2),
-.fish-genus-table th:nth-child(2) {
-    width: 10%; 
-}
-
-.fish-genus-table td:nth-child(3),
-.fish-genus-table th:nth-child(3) {
-    width: 10%; 
-}
-
-.fish-genus-table td:nth-child(4),
-.fish-genus-table th:nth-child(4) {
-    width: 10%; 
-}
-
-.fish-genus-table td:nth-child(5),
-.fish-genus-table th:nth-child(5) {
-    width: 10%; 
-}
-
-.fish-genus-table td:nth-child(6),
-.fish-genus-table th:nth-child(6) {
-    width: 10%; 
-}
-
-.fish-genus-table td:nth-child(7),
-.fish-genus-table th:nth-child(7) {
-    width: 10%; 
-}
-
-.fish-genus-table td:nth-child(8),
-.fish-genus-table th:nth-child(8) {
-    width: 10%; 
-}
-
-.fish-genus-table td:nth-child(9),
-.fish-genus-table th:nth-child(9) {
-    width: 10%; 
-}
-
-.fish-genus-table td:nth-child(10),
-.fish-genus-table th:nth-child(10) {
-    width: 10%; 
+.fish-genus-table tbody tr:nth-child(even) {
+    color: #000000;
 }
 
 .fish-genus-table tbody tr:hover {
@@ -584,7 +548,12 @@ body {
 
 .divider h1{
     font-family: 'Alata', sans-serif;
-    font-size: 30px;
+    font-size: 35px;
     color: #000000;
     font-weight: 400;
+}
+
+.divider a {
+    text-decoration: none;
+    color: inherit; /* Ensures the link color remains the same */
 }
